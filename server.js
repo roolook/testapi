@@ -1,10 +1,12 @@
 const express = require('express');
 const cors = require('cors');
-const fetch = require('node-fetch');
+const fetch = require('node-fetch'); // Make sure version 2.x is installed
 
 const app = express();
 const PORT = process.env.PORT || 3000;
-const INSTANCE = 'https://vid.puffyan.us';
+
+// 🔁 Use a more reliable Invidious instance
+const INSTANCE = 'https://invidious.kavin.rocks';
 
 app.use(cors());
 
@@ -14,7 +16,7 @@ app.get('/api/video/:id', async (req, res) => {
 
   try {
     const response = await fetch(url);
-    if (!response.ok) throw new Error('Failed to fetch Invidious API');
+    if (!response.ok) throw new Error('Failed to fetch from Invidious instance');
     const data = await response.json();
     res.json(data);
   } catch (err) {
