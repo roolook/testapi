@@ -6,7 +6,7 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 // 🔁 Use a more reliable Invidious instance
-const INSTANCE = 'https://invidious.kavin.rocks';
+const INSTANCE = 'https://invidious.fdn.fr';
 
 app.use(cors());
 
